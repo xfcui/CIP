@@ -17,9 +17,32 @@ Clone this repository by:
 git clone https://github.com/xfcui/CIP.git
 ```
 
+## Processed
+This repository contains the processed datasets and training weights for our project. You can access the files via the following link: [Download Processed Data and Training Weights](https://drive.google.com/drive/folders/14aFDFyZ-a3tGJEObvgDewgyUjHBLGzNS?usp=sharing).
 
 
-Run:
+## Run
+main:
 ```bash
-python3 test.py
+chmod +x run.sh
+./run.sh
 ```
+experient1-1:
+```bash
+chmod +x exp11.sh
+./exp11.sh
+```
+experient1-2:
+```bash
+chmod +x exp12.sh
+./exp12.sh
+```
+experient2:
+```bash
+chmod +x exp2.sh
+./exp2.sh
+```
+
+## Acknowledgments
+
+- Thank you to all the contributors ！
