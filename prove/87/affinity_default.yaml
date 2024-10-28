@@ -1,0 +1,100 @@
+target: Chembl_Rank
+base_path: ../
+root_dir: ./log
+seed: 2022
+
+train:
+  gpu_memory_need: 2000
+  repeat: 3
+  optimizer:
+    type: Adam
+    lr: 0.001
+    weight_decay: 0.000
+    dropout: 0.0
+  scheduler:
+    type: plateau
+    factor: 0.6
+    patience: 10
+    min_lr: 1e-4
+  gpus:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+
+  resume_train: 
+  resume_epoch: 
+  resume_now: 
+  batch_size: 128
+  shuffle: true
+  num_workers: 8
+  pretrain_epochs: 100
+  finetune_epochs: 200
+  early_stop: 70
+  log_interval:
+  eval: true
+  save: true
+  use_pretrain_model: true
+  pretrain_ranking_loss_lambda: 1.0
+  pretrain_regression_loss_lambda: 0.3
+  pretrain_regression_loss_lambda_degrade_ratio: 1.0
+  pretrain_regression_loss_lambda_degrade_epoch: 1
+  pretrain_mtl_IC50_lambda: 1.0
+  pretrain_mtl_K_lambda: 1.0
+  finetune_times: 5
+  finetune_new_affinity_head: false
+
+test:
+  epoch: 
+  now: 
+
+data:
+  dataset_name: chembl_in_pdbbind_smina
+  top_N: 1
+  use_ic50: true
+  use_ki: true
+  use_kd: true
+  affinity_relation: '=' # [=, >, all], all: use > and =
+  finetune_dataset_name: pdbbind2016_finetune
+  generalize_dataset_name: csar_test
+  drop_last: true
+  dataset_path: ./CIP/data
+  labels_path: ./CIP/data/INDEX_general_PL_data.2016
+  generalize_labels_path: ./CIP/data/score_total.txt
+  finetune_train_names: ./CIP/data/pdbbind2016_train
+  finetune_valid_names: ./CIP/data/pdbbind2016_valid
+  finetune_test_names: ./CIP/data/pdbbind2016_test
+  ligcut: 5.0
+  add_chemical_bond_feats: true
+  use_mean_node_features: false
+  protcut: 30.0
+  intercut: 12.0
+  chaincut: 10
+  prot_graph_type: residue_complete
+  n_jobs: 8
+  lig_max_neighbors: null
+  prot_max_neighbors: 10
+  inter_min_neighbors: null
+  inter_max_neighbors: null
+  lig_type: openbabel
+  test_2: false # test for asrp pretraining 
+  test_100: false # test for finetune
+
+model:
+  model_type: Affinity_GNNs
+  GNN_type: AttentiveFP
+  out_dim: 1
+  aux_dim: 8
+  num_layers: 3
+  hidden_dim: 128
+  inter_out_dim: 128
+  fc_hidden_dim: [128,128,128]
+  fintune_fc_hidden_dim: [128]
+  readout: w_sum
+  dropout: 0.1
+  jk: sum
+
