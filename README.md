@@ -12,7 +12,7 @@ Contact: xfcui@email.sdu.edu.cn
 
 ## Usage
 
-Clone this repository by:
+Clone this repository by: 💻
 ```bash
 git clone https://github.com/xfcui/CIP.git
 ```
@@ -20,29 +20,47 @@ git clone https://github.com/xfcui/CIP.git
 ## Processed
 This repository contains the processed datasets and training weights for our project. You can access the files via the following link: [Download Processed Data and Training Weights](https://drive.google.com/drive/folders/14aFDFyZ-a3tGJEObvgDewgyUjHBLGzNS?usp=sharing).
 
+## Envirment
 
-## Run
+#### Create a new environmentd ⛷️ ⛷️ ⛷️ 🏥
+
+```bash
+conda create -n Nov python=3.11
+```
+#### Activate the environment
+
+```bash
+conda activate Nov
+```
+#### Rerun the script to install(after cd to CIP's path) ⚠️ 
+
+```bash
+bash install_env.sh
+```
+If a package installation fails, you may need to uninstall it first and then reinstall it.
+## Quick Run Setup
 main:
 ```bash
 chmod +x run.sh
-./run.sh
+bash run.sh
 ```
-experient1-1:
+experient_tsne_1-1:
 ```bash
 chmod +x exp11.sh
-./exp11.sh
+bash exp11.sh
 ```
-experient1-2:
+experient_tsne_1-2:
 ```bash
 chmod +x exp12.sh
-./exp12.sh
+bash exp12.sh
 ```
-experient2:
+experient2_visualization:
 ```bash
 chmod +x exp2.sh
-./exp2.sh
+bash exp2.sh
 ```
 
 ## Acknowledgments
+I would like to express my sincere gratitude to all the authors and contributors whose work has greatly influenced and supported this research. 
 
-- Thank you to all the contributors ！
+Special thanks are extended to the National Natural Science Foundation of China (grant numbers 62072283 and 61272279) and the Science and Technology Development Program of Jilin Province (grant number YDZJ202401395ZYTS) for their financial support, without which this work would not have been possible.
