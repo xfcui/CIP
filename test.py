@@ -7,7 +7,7 @@ from CIP import commons, runner
 from datetime import datetime
 from time import time
 import numpy as np
-
+from tqdm import tqdm
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--work_dir', type=str, default='./prove/87')
@@ -28,17 +28,26 @@ if __name__ == '__main__':
     model = globals()[config.model.model_type + '_MTL'](config).to(config.train.device)
     RMSEs, MAEs, Pearsons, Spearmans, SDs = [], [], [], [], []
    
+    progress_bar = tqdm(total=config.train.finetune_times, desc="Model Evaluation Progress")
+
+    step_increment = config.train.finetune_times / config.train.finetune_times
+
     for i in range(config.train.finetune_times):
         checkpoint = os.path.join(args.work_dir, f'checkpointbest_valid_{i}')
         state = torch.load(checkpoint, map_location=config.train.device)
         model.load_state_dict(state["model"])
+        
         RMSE, MAE, SD, Pearson = runner.reproduce_runner.reproduce_result(config, test_data, model, config.train.device)
         RMSEs.append(RMSE)
         MAEs.append(MAE)
         Pearsons.append(Pearson)
         SDs.append(SD)
 
-    print(f'RMSE :{np.mean(RMSEs)}')
-    print(f'MAE :{np.mean(MAEs)}')
-    print(f'Pearson :{np.mean(Pearsons)}')
-    print(f'SD :{np.mean(SDs)}')
+        progress_bar.update(step_increment)
+
+    progress_bar.close()
+
+    print(f'- Root Mean Squared Error (RMSE): {np.mean(RMSEs):.2f}')
+    print(f'- Mean Absolute Error (MAE): {np.mean(MAEs):.2f}')
+    print(f'- Pearson Correlation Coefficient: {np.mean(Pearsons):.2f}')
+    print(f'- Standard Deviation (SD) of Errors: {np.mean(SDs):.2f}')
