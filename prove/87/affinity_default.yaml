@@ -29,7 +29,7 @@ train:
   resume_train: 
   resume_epoch: 
   resume_now: 
-  batch_size: 128
+  batch_size: 1
   shuffle: true
   num_workers: 8
   pretrain_epochs: 100
