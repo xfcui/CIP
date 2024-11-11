@@ -18,7 +18,7 @@ if __name__ == '__main__':
     commons.set_seed(config.seed)
 
     load_start = time()
-    test_data,generalize_csar_data = commons.get_test_dataset(config)
+    test_data = commons.get_test_dataset(config)
     print('load data time:{:.2f}s'.format(time() - load_start))
 
     config.model.lig_node_dim, config.model.lig_edge_dim = test_data.lig_node_dim, test_data.lig_edge_dim
