@@ -40,21 +40,25 @@ If a package installation fails, you may need to uninstall it first and then rei
 main:
 ```bash
 chmod +x run.sh
+sed -i 's/\r$//' run.sh
 bash run.sh
 ```
 experient_tsne_1-1:
 ```bash
 chmod +x exp11.sh
+sed -i 's/\r$//' exp11.sh
 bash exp11.sh
 ```
 experient_tsne_1-2:
 ```bash
 chmod +x exp12.sh
+sed -i 's/\r$//' exp12.sh
 bash exp12.sh
 ```
 experient2_visualization:
 ```bash
 chmod +x exp2.sh
+sed -i 's/\r$//' exp2.sh
 bash exp2.sh
 ```
 
