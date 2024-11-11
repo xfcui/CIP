@@ -21,7 +21,7 @@ pip install scipy==1.14.1
 pip install rdkit
 pip install scikit-learn
 pip install pydantic
-
+pip install tensorboard
 #If an issue occurs, please run `pip uninstall` and then reinstall with `pip install`.
 
 pip uninstall matplotlib
