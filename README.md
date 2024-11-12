@@ -15,7 +15,7 @@ git clone https://github.com/xfcui/CIP.git
 ```
 
 ## Processed
-This repository contains the processed datasets and training weights for our project. You can access the files via the following link: [Download Processed Data and Training Weights](https://drive.google.com/drive/folders/14aFDFyZ-a3tGJEObvgDewgyUjHBLGzNS?usp=sharing).
+This repository contains the processed datasets and training weights for our project. You can access the files via the following link: [Download Processed Data and Training Weights](https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9jNDYzZDI3ZTc1YmFhNGNiL0VuTXZzTkNaaTA5QmxXQy1CNlJsOHlFQnNzZ2M2SHZCWE94eUpKQlBFNllYNHc%5FZT1hckpuUGI&id=C463D27E75BAA4CB%21sd0b02f738b99414f9560be07a465f321&cid=C463D27E75BAA4CB).
 
 Please place the 'data' from Google Drive into the "data" folder, and put the 'ckpt' and 'config.yaml' files into the "prove/87" folder.
 ## Envirment
