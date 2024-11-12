@@ -33,7 +33,7 @@ if __name__ == '__main__':
     step_increment = config.train.finetune_times / config.train.finetune_times
 
     for i in range(config.train.finetune_times):
-        checkpoint = os.path.join(args.work_dir, f'checkpointbest_valid_{i}')
+        checkpoint = os.path.join(args.work_dir, f'checkpointbest_valid_{i}.ckpt')
         state = torch.load(checkpoint, map_location=config.train.device)
         model.load_state_dict(state["model"])
         
