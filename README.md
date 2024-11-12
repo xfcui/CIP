@@ -37,6 +37,11 @@ bash install_env.sh
 ```
 If a package installation fails, you may need to uninstall it first and then reinstall it.
 ## Quick Run Setup
+
+```bash
+mv CIP-main  CIP
+```
+
 main:
 ```bash
 chmod +x run.sh
